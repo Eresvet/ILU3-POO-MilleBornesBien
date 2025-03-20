@@ -44,7 +44,7 @@ public class TestSabot {
 		TestSabot testPioche = new TestSabot();
 //		testPioche.questionA();
 //		testPioche.questionB();
-		testPioche.questionC(); // Exception à gérer ?
+		testPioche.questionC();
 	}
 
 }

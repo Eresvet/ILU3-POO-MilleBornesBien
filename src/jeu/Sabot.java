@@ -9,6 +9,7 @@ import cartes.Carte;
 public class Sabot implements Iterable<Carte>{
 	private Carte[] cartes;
 	private int nbCartes = 0;
+	private int nombreOperations = 0;
 	
 	public Sabot(Carte[] cartes) {
 		this.cartes = cartes;
@@ -24,6 +25,7 @@ public class Sabot implements Iterable<Carte>{
             if (nbCartes < cartes.length) {
                 cartes[nbCartes] = carte;
                 nbCartes++;
+                nombreOperations++;
                 System.out.println("Carte ajoute : " + carte);
             } else {
                 throw new ArrayIndexOutOfBoundsException("Le tableau est plein");
@@ -48,7 +50,6 @@ public class Sabot implements Iterable<Carte>{
 	 private class Iterateur implements Iterator<Carte> {
 		 private int indiceIterateur = 0;
 		 private boolean nextEffectue = false;
-		 private int nombreOperations = 0;
 		 private int nombreOperationsReference = nombreOperations;
 		 
 		 @Override
@@ -80,6 +81,8 @@ public class Sabot implements Iterable<Carte>{
 			 nextEffectue = false;
 			 indiceIterateur--;
 			 nbCartes--;
+			 nombreOperationsReference++;
+			 nombreOperations++;
 		 }
 		 
 		 private void verificationConcurrence() {

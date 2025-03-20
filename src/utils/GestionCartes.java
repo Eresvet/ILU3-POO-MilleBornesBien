@@ -1,5 +1,7 @@
 package utils;
 
 public class GestionCartes {
-	public static <T> [] extraire ()
+	public static <T> T[] extraire(T[] liste) {
+		
+	}
 }

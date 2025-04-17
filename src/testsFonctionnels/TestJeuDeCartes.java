@@ -11,7 +11,9 @@ import utils.GestionCartes;
 public class TestJeuDeCartes {
 	
 	public static <T> boolean testerConservationElements(List<T> listeOriginale, List<T> listeTestee) {
-	    if (listeOriginale.size() != listeTestee.size()) return false;
+	    if (listeOriginale.size() != listeTestee.size()) {
+	    	return false;
+	    }
 
 	    for (T elt : listeOriginale) {
 	        if (Collections.frequency(listeOriginale, elt) != Collections.frequency(listeTestee, elt)) {
@@ -43,22 +45,18 @@ public class TestJeuDeCartes {
         System.out.println("Après mélange :");
         System.out.println(listeCartes);
 
-        System.out.println("Liste mélangée sans erreur ? "
-                + GestionCartes.verifierMelange(listeCarteNonMelangee, listeCartes));
+        System.out.println("Liste mélangée sans erreur ? " + GestionCartes.verifierMelange(listeCarteNonMelangee, listeCartes));
 
-        System.out.println("Éléments conservés ? "
-                + testerConservationElements(listeCarteNonMelangee, listeCartes));
+        System.out.println("Éléments conservés ? " + testerConservationElements(listeCarteNonMelangee, listeCartes));
 
         listeCartes = GestionCartes.rassembler(listeCartes);
 
         System.out.println("Après rassemblement :");
         System.out.println(listeCartes);
 
-        System.out.println("Liste rassemblée sans erreur ? "
-                + GestionCartes.verifierRassemblement(listeCartes));
+        System.out.println("Liste rassemblée sans erreur ? " + GestionCartes.verifierRassemblement(listeCartes));
 
-        System.out.println("Éléments toujours conservés ? "
-                + testerConservationElements(listeCarteNonMelangee, listeCartes));
+        System.out.println("Éléments toujours conservés ? " + testerConservationElements(listeCarteNonMelangee, listeCartes));
 
 	}
 }
